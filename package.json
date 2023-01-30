@@ -16,7 +16,8 @@
     "build:esm": "gen-esm-wrapper dist/index.js dist/index.mjs",
     "build:docs": "typedoc --theme default --readme README.md --out docs/ --entryPointStrategy expand src/.",
     "lint": "eslint --fix --ext .ts",
-    "prepare": "tsc && npm run build:esm"
+    "prepare": "tsc && npm run build:esm",
+    "postinstall": "if [[ -f \"tsconfig.json\" ]]; then npx tsc && cp package.json dist; fi"
   },
   "keywords": [
     "bot",
